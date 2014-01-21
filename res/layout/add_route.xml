@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id = "@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+     <ScrollView
+         android:layout_width="fill_parent"
+     android:layout_height="fill_parent">
+     <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+    <EditText
+        android:id="@+id/trip_name_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/trip_name"
+        android:ems="10" />
+    
+      <EditText
+        android:id="@+id/trip_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/trip_desc"
+        android:ems="10" />
+      
+      
+    
+   <!-- 
+   <TextView 
+          android:id="@+id/textView1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/start_date"/>
+   
+   <DatePicker
+        android:id="@+id/trip_start_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/start_date"
+        />  -->
+    
+  <TextView 
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/end_date"/>
+      
+  <!--   
+    
+  <DatePicker
+        android:id="@+id/trip_end_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/end_date"
+         />  -->
+    
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+    
+					    <EditText
+					        android:id="@+id/place_name"
+					        android:layout_width="0dp"
+					        android:layout_height="wrap_content"
+					        android:ems="10"
+					        android:layout_weight="2"
+					        android:layout_gravity="left"
+					        android:hint="@string/place_name" />
+					    
+					    <ImageButton
+					        android:contentDescription="@string/searchPlaces_button"
+					        android:id="@+id/searchPlaces_button"
+					        android:layout_width="40dp"
+					        android:layout_height="40dp"
+					        android:background="#0000"
+					        android:layout_gravity="right"
+					        android:layout_marginRight="5dp"
+					        android:scaleType="fitXY"
+					        android:layout_marginTop="3dp"
+					        android:src="@drawable/search"
+					        />
+					    </LinearLayout>
+					    
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+
+    <Button
+        android:id="@+id/addPlaces_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="@string/addPlace_button" />
+   
+  </RelativeLayout>
+  
+     
+        <ListView
+        android:id="@+id/PlaceListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+     
+    <fragment 
+ 	 android:id="@+id/placeMap"
+ 	 android:layout_width="match_parent"
+	 android:layout_height="300dp"
+ 	 class="com.google.android.gms.maps.SupportMapFragment"/>
+   
+    
+    
+    
+    <Button
+        android:id="@+id/addTrip_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/addTrip_button" />
+    
+    </LinearLayout>
+    
+      </ScrollView>
+
+</TableLayout>

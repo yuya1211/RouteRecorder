@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voyagr</string>
+    <string name="action_show_list">Show List</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="trip_name">Trip Name</string>
+    <string name="place_name">Place Name</string>
+    <string name="place_lat">Place Latitute</string>
+    <string name="place_lng">Place Longtitute</string>
+    <string name="addPlace_button">Add Place</string>
+    <string name="searchPlaces_button">search</string>
+    <string name="done_addPlaces">Done</string>
+    
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="trip_desc">Trip Description</string>
+    <string name="addTrip_button">Add Trip</string>
+    
+    <string name="delete_trip">Delete</string>
+    <string name="show_trip">Show</string>
+    <string name="expand_trip">Expand</string>
+    
+    <color name="black">#000000</color>
+    
+    
+    
+
+</resources>

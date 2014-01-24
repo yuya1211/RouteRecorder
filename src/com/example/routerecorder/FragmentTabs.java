@@ -144,7 +144,7 @@ public class FragmentTabs extends FragmentActivity {
         }
 
         public void onTabReselected(Tab tab, FragmentTransaction ft) {
-            Toast.makeText(mActivity, "Reselected!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mActivity, "Reselected!", Toast.LENGTH_SHORT).show();
         }
     }
     

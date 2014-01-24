@@ -22,6 +22,7 @@ import android.app.TabActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.database.Cursor;
 import android.location.Address;
@@ -71,6 +72,12 @@ import android.widget.Toast;
     	private EditText mTripDesc;
     	private DbHelper dbhelper = null;
     	private ListView listview;
+    	private String myTripName;
+    	private String myTripDesc;
+    	private TextView tripNameView;
+    	private TextView tripDescView;
+    	
+
 
     	private EditText mPlaceName;
     	private Uri routeUri;
@@ -94,9 +101,10 @@ import android.widget.Toast;
             super.onCreate(savedInstanceState);
             
             mNum = getArguments() != null ? getArguments().getInt("num") : 1;
-        	getActivity().getContentResolver().delete(RouteContentProvider.CONTENT_URI_TRIP,	null, null);
-	    	getActivity().getContentResolver().delete(RouteContentProvider.CONTENT_URI_ROUTE,	null, null);
+            
+        	
         
+        	
         
         }
         
@@ -116,6 +124,8 @@ import android.widget.Toast;
         	return FragmentTabs.instance;
         }*/
         
+        
+        
         private static View v;
         
         @Override
@@ -123,6 +133,12 @@ import android.widget.Toast;
                 Bundle savedInstanceState) {
             //View v = inflater.inflate(R.layout.add_route, container, false);
         	//newRoute = new Route();
+        	
+        	
+        	if(myTripName==null || myTripDesc==null)
+        	textEntryTrip();
+        	
+        
             
         	if (v != null) {
                 ViewGroup parent = (ViewGroup) v.getParent();
@@ -137,10 +153,7 @@ import android.widget.Toast;
             
             
             /*******text field in this fragment*******/ 
-            mTripName = (EditText) v.findViewById(R.id.trip_name_2);
-    		//mTripStartDate = (DatePicker) findViewById(R.id.trip_start_date);
-    		//mTripEndDate = (DatePicker) findViewById(R.id.trip_end_date);
-    		mTripDesc = (EditText) v.findViewById(R.id.trip_desc);   		
+            	
     		String myPlaceName = ( (EditText)v.findViewById(R.id.place_name) ).toString();
             /*******text field in this fragment*******/ 
 	
@@ -149,10 +162,10 @@ import android.widget.Toast;
             button.setOnClickListener(new OnClickListener() {
             	public void onClick(View v){   
             		
-            		String myTripName = mTripName.getText().toString();
-            		String myTripDesc = mTripDesc.getText().toString();
+            		//myTripName = mTripName.getText().toString();
+            		//myTripDesc = mTripDesc.getText().toString();
             		
-            		if(myTripName.toString().trim().equalsIgnoreCase("")){
+            		if(myTripName == null ){
             			Toast toast = Toast.makeText(getActivity().getBaseContext(), "Trip Name is Empty", 
             					Toast.LENGTH_SHORT);
             			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL,0,0);
@@ -160,15 +173,18 @@ import android.widget.Toast;
             			return;
             		}
             		
-            		if(myTripDesc.toString().trim().equalsIgnoreCase("")){
+            		if(myTripDesc == null){
+            		//if(myTripDesc.trim().equalsIgnoreCase("")){
             			Toast toast = Toast.makeText(getActivity().getBaseContext(), "Trip Description is Empty", 
             					Toast.LENGTH_SHORT);
             			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
-            			toast.show();			
+            			toast.show();
             			return;
             		}
             		
-            		if(newRoute.getPlaceNames() == null ){
+            		
+            		
+            		if(newRoute.isEmpty() ){
             			Toast toast = Toast.makeText(getActivity().getBaseContext(), "You haven't put places in this trip",
             					Toast.LENGTH_SHORT);
             			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -188,7 +204,7 @@ import android.widget.Toast;
             		AlertDialog.Builder doneDialogBuilder = new AlertDialog.Builder(getActivity());
             		doneDialogBuilder.setTitle("Done!");
             		doneDialogBuilder.setMessage("You are going to add: " + placeToAdd + "to this trip")        
-            						.setCancelable(true)
+            						.setCancelable(false)
             						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             							
 										
@@ -200,8 +216,12 @@ import android.widget.Toast;
             		
 							            		//EditText myTripName = (EditText)getActivity().findViewById(R.id.trip_name_2);
 							            		//EditText myTripDesc = (EditText)getActivity().findViewById(R.id.trip_desc);
-											String myTripName = mTripName.getText().toString();
-						            		String myTripDesc = mTripDesc.getText().toString();
+											tripNameView = (TextView) getActivity().findViewById(R.id.trip_name_show);
+						                	tripDescView = (TextView) getActivity().findViewById(R.id.trip_desc_show);
+						                	
+						                	tripNameView.setText("New Trip Name");
+						            		tripDescView.setText("New Trip Description");
+						                	
 							            		
 							            		
 							            		Log.d("QQ" , "IN ADD ROUTE 0");
@@ -226,7 +246,7 @@ import android.widget.Toast;
 							            			
 							
 							            			Log.d("QQ" , "IN ADD ROUTE 3");
-							            			colorList.add( -7829368);//grey
+							            			/*colorList.add( -7829368);//grey
 							            			colorList.add( -16776961);//blue
 							            			colorList.add( -16711681);//cyan
 							            			colorList.add( -12303292);//dark grey			
@@ -234,16 +254,27 @@ import android.widget.Toast;
 							            			colorList.add( -65281);//mangma
 							            			colorList.add( -65536);//red
 							            			colorList.add(  -1);//white
-							            			colorList.add( -256);//yellow
+							            			colorList.add( -256);//yellow*/
 							            			
-							            			Integer routeColor = colorList.get( numRows%9 );
+							            			//colorList.add(-16762355);
+							            			colorList.add(-15446505);
+							            			//colorList.add(-16768706);
+							            			colorList.add(-15446505);
+							            			//colorList.add(-13365934);
+							            			colorList.add(-12052644);
+							            			colorList.add(-9437184);
+							            			colorList.add(-5741056);
+							            			
+							            			Integer routeColor = colorList.get( numRows%5 );
 							            			
 							
 							            			/******put trip information to the database*******/
 							            			ContentValues valuesTrip = new ContentValues();
 							            			valuesTrip.put(RouteTable.COLUMN_TRIP_NAME, myTripName.toString());
 							            			valuesTrip.put(RouteTable.COLUMN_TRIP_DESC, myTripDesc.toString());
-							            			valuesTrip.put(RouteTable.COLUMN_TRIP_COLOR, routeColor.toString());   		
+							            			valuesTrip.put(RouteTable.COLUMN_TRIP_COLOR, routeColor.toString()); 
+							            			myTripName = null;
+							            			myTripDesc = null;
 							            			getActivity().getContentResolver().insert(RouteContentProvider.CONTENT_URI_TRIP, valuesTrip);	
 							            			/******put trip information to the database*******/
 							            			
@@ -382,6 +413,10 @@ import android.widget.Toast;
         					}//end of if
         				} catch (IOException e) {
         					// TODO Auto-generated catch block
+        					Toast toast = Toast.makeText(getActivity().getBaseContext(), "Make sure you have internet service or you may" +
+        							" have to reboot for this location finder", Toast.LENGTH_LONG);
+        					toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+        					toast.show();
         					e.printStackTrace();
         				}
         		
@@ -407,13 +442,13 @@ import android.widget.Toast;
     				placeMap.setIndoorEnabled(true);	
     				}
             	}
-            });
+            }
+            );
             
             Button addButton = (Button) v.findViewById(R.id.addPlaces_button);
             addButton.setOnClickListener( new OnClickListener(){
             	public void onClick(View v){
-            		TextView textContent = (TextView) getActivity().findViewById(R.id.textView2);
-            		textContent.setText(placeName);
+            		
             		EditText myPlace =  (EditText) getActivity().findViewById(R.id.place_name);
             		String myPlaceName = myPlace.getText().toString();
             		Log.d("QQ", myPlaceName);
@@ -447,6 +482,10 @@ import android.widget.Toast;
         					}//end of if
         				} catch (IOException e) {
         					// TODO Auto-generated catch block
+        					Toast toast = Toast.makeText(getActivity().getBaseContext(), "Make sure you have internet service or you may" +
+        							" have to reboot for this location finder", Toast.LENGTH_LONG);
+        					toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+        					toast.show();
         					e.printStackTrace();
         				}
         		
@@ -563,6 +602,75 @@ import android.widget.Toast;
     		listView.requestLayout();
      
     	}
+        
+        
+        
+        private void textEntryTrip(){
+        	
+
+        	Log.d("QQ" , "not yet got the trip text?");
+        	
+
+        	Log.d("QQ" , "got the trip text?");
+        	
+            LayoutInflater factory = LayoutInflater.from( getActivity() );
+            final View textEntryView = factory.inflate(R.layout.alert_dialog_text_entry, null);
+           
+            
+            AlertDialog.Builder newTripDialogBuilder = new AlertDialog.Builder( getActivity() );
+    		newTripDialogBuilder.setTitle("New Trip");
+    		newTripDialogBuilder.setView(textEntryView)
+    						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    		                    public void onClick(DialogInterface dialog, int whichButton) {
+    		                    	
+    		                    	
+    		                        
+    		                        /* User clicked OK so do some stuff */
+    		                    	mTripName = (EditText) textEntryView.findViewById(R.id.trip_name_edit);
+    		                		//mTripStartDate = (DatePicker) findViewById(R.id.trip_start_date);
+    		                		//mTripEndDate = (DatePicker) findViewById(R.id.trip_end_date);
+    		                		mTripDesc = (EditText) textEntryView.findViewById(R.id.trip_desc_edit);   	
+    		                		
+    		                                  	
+    		                    	myTripName = mTripName.getText().toString();
+				            		myTripDesc = mTripDesc.getText().toString();
+				            		
+				            		tripNameView = (TextView) getActivity().findViewById(R.id.trip_name_show);
+				                	tripDescView = (TextView) getActivity().findViewById(R.id.trip_desc_show);
+				                	
+				                	if( !myTripName.isEmpty() && !myTripDesc.isEmpty()){
+				            		tripNameView.setText(myTripName);
+				            		tripDescView.setText(myTripDesc);
+				                	}
+				                	
+				            		if(myTripName.isEmpty() || myTripDesc.isEmpty()){
+				            		//if(myTripName.trim().equalsIgnoreCase("") || myTripDesc.trim().equalsIgnoreCase("")){
+    		                			
+    		                			getActivity().getActionBar().setSelectedNavigationItem(0);
+    		                			myTripName = null;
+    		                			myTripDesc = null;
+    		                		}
+    		                		
+    		         
+    		                    }
+    		                })
+    						.setNegativeButton( 
+    									"Cancel", new DialogInterface.OnClickListener() {
+    				                    public void onClick(DialogInterface dialog, int whichButton) {
+
+    				                        /* User clicked cancel so do some stuff */
+    				                    	getActivity().getActionBar().setSelectedNavigationItem(0);
+					        				
+    				                    }
+    				                })
+    				                .setCancelable(false)
+    						.create()
+    						.show();
+    		
+    		
+    			
+        	
+        }
         
        
 

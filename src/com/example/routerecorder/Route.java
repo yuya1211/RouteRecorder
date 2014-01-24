@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import com.google.android.gms.maps.model.LatLng;
 import android.graphics.*;
 
-public class Route {
+public class Route{
 	
 		private ArrayList<LatLng> Points;
 		private ArrayList<String> placeNames;
@@ -48,6 +48,14 @@ public class Route {
 	
 	public int getTripId(){
 		return this.tripId;
+	}
+	
+	public boolean isEmpty(){
+		
+		if(   (this.placeNames.isEmpty())  &&  this.Points.isEmpty())
+			return true;
+		else
+			return false;
 	}
 	
 }

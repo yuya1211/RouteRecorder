@@ -33,7 +33,7 @@ public class AddRouteActivity extends Activity implements OnClickListener{
 		super.onCreate(bundle);
 		setContentView(R.layout.add_route);
 		
-		mTripName = (EditText) findViewById(R.id.trip_name_2);
+		mTripName = (EditText) findViewById(R.id.trip_name);
 		//mTripStartDate = (DatePicker) findViewById(R.id.trip_start_date);
 		//mTripEndDate = (DatePicker) findViewById(R.id.trip_end_date);
 		mTripDesc = (EditText) findViewById(R.id.trip_desc);

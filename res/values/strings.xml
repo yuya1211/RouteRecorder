@@ -20,6 +20,11 @@
     <string name="delete_trip">Delete</string>
     <string name="show_trip">Show</string>
     <string name="expand_trip">Expand</string>
+    <string name="placelist">In this trip, you have been to: </string>
+    <string name="alert_dialog_name">Trip Name: </string>
+    <string name="alert_dialog_desc">Trip Description: </string>
+    <string name="trip_name_space">New Trip Name</string>
+    <string name="trip_desc_space">New Trip Description</string>
     
     <color name="black">#000000</color>
     

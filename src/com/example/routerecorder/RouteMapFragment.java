@@ -46,7 +46,9 @@ public class RouteMapFragment extends Fragment {
 		
 		
 		super.onCreate(savedInstanceState);		
-		
+		//getActivity().getContentResolver().delete(RouteContentProvider.CONTENT_URI_TRIP,	null, null);
+    	//getActivity().getContentResolver().delete(RouteContentProvider.CONTENT_URI_ROUTE,	null, null);
+    	
 		
 		
 	}// end of onCreate

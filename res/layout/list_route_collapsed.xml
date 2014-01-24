@@ -11,7 +11,7 @@
     <TextView android:id = "@+id/route_1"
         	android:layout_width="30dip"
         	android:textAppearance="?android:attr/textAppearanceLarge"
-        	android:background="#73A800"
+        	android:background="#33b5e5"
         	android:gravity="center_horizontal"      	
         	android:layout_height = "fill_parent"
         	/>
@@ -19,7 +19,7 @@
     <TextView android:id = "@+id/route_2"
         	android:textAppearance="?android:attr/textAppearanceLarge"
         	android:layout_toRightOf="@+id/route_1"
-        	android:textColor="#73A800"
+        	android:textColor="#33b5e5"
         	android:layout_marginLeft="5dp"
         	android:layout_width = "wrap_content"
         	android:layout_height = "fill_parent"
@@ -37,10 +37,10 @@
          android:layout_width="40dp"
      	android:layout_height="40dp"
      	android:focusable="false"
-     	android:background="#1111"
+     	android:background="#0000"
      	android:scaleType="fitXY"
      	android:layout_marginRight="5dp"
-     	android:src="@drawable/trash_empty"/>
+     	android:src="@drawable/trash_empty_white"/>
      
      <ImageButton
          android:contentDescription="@string/show_trip"
@@ -50,9 +50,9 @@
      	android:scaleType="fitXY"
      	android:layout_toRightOf="@id/delete_imagebutton"
      	android:focusable="false"
-     	android:background="#1111"
+     	android:background="#0000"
      	android:layout_marginRight="5dp"
-     	android:src="@drawable/world"/>
+     	android:src="@drawable/world_white"/>
     
       <!--    <Button android:text="@string/delete_trip"
      android:id="@+id/delete_trip_btn"
@@ -81,7 +81,7 @@
         	android:layout_width = "wrap_content"
         	android:layout_height = "fill_parent"
         	android:layout_marginLeft="35dp"
-        	android:textColor = "#111111"
+        	android:textColor = "#44c6f6"
         	android:textAppearance="?android:attr/textAppearanceMedium"
         	/>
     </RelativeLayout>

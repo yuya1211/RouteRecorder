@@ -11,6 +11,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+            
+         
+   <!-- 
     <EditText
         android:id="@+id/trip_name_2"
         android:layout_width="match_parent"
@@ -27,7 +30,6 @@
       
       
     
-   <!-- 
    <TextView 
           android:id="@+id/textView1"
           android:layout_width="wrap_content"
@@ -40,12 +42,46 @@
         android:layout_height="wrap_content"
         android:hint="@string/start_date"
         />  -->
+        
+   <TextView 
+          android:id="@+id/trip_name_show"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dip"
+       	 android:layout_marginRight="15dip"
+       	 android:layout_marginTop="30dip"
+       	 android:textColor="#33b5e5"
+       	android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="@string/trip_name_space"/>
+   
+    <TextView 
+          android:id="@+id/trip_desc_show"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dip"
+       	 android:layout_marginRight="15dip"
+       	 android:textColor="#55e7f7"
+       	android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="@string/trip_desc_space"/>
     
   <TextView 
           android:id="@+id/textView2"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/end_date"/>
+          android:layout_marginLeft="15dip"
+       	 android:layout_marginRight="15dip"
+       	 android:layout_marginTop="10dip"
+       	android:textAppearance="?android:attr/textAppearanceMedium"
+          android:text="@string/placelist"/>
+  
+    <ListView
+        android:id="@+id/PlaceListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="15dip"
+       	 android:layout_marginRight="15dip"
+       	android:textAppearance="?android:attr/textAppearanceMedium">
+    </ListView>
       
   <!--   
     
@@ -80,7 +116,7 @@
 					        android:layout_marginRight="5dp"
 					        android:scaleType="fitXY"
 					        android:layout_marginTop="3dp"
-					        android:src="@drawable/search"
+					        android:src="@drawable/search_white"
 					        />
 					    </LinearLayout>
 					    
@@ -97,16 +133,14 @@
   </RelativeLayout>
   
      
-        <ListView
-        android:id="@+id/PlaceListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+   
      
     <fragment 
  	 android:id="@+id/placeMap"
  	 android:layout_width="match_parent"
 	 android:layout_height="300dp"
+	 android:layout_marginLeft="5dip"
+	 android:layout_marginRight="5dip"
  	 class="com.google.android.gms.maps.SupportMapFragment"/>
    
     
@@ -117,7 +151,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/addTrip_button" />
+        android:text="@string/addTrip_button"
+        android:layout_marginBottom="50dip" />
     
     </LinearLayout>
     

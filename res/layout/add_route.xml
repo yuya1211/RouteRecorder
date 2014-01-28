@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
      >
      <ScrollView
-         android:layout_width="fill_parent"
-     android:layout_height="fill_parent">
+         	android:layout_width="fill_parent"
+     		android:layout_height="fill_parent">
      <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -43,26 +43,67 @@
         android:hint="@string/start_date"
         />  -->
         
-   <TextView 
-          android:id="@+id/trip_name_show"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="15dip"
-       	 android:layout_marginRight="15dip"
-       	 android:layout_marginTop="10dip"
-       	 android:textColor="#33b5e5"
-       	android:textAppearance="?android:attr/textAppearanceLarge"
-          android:text="@string/trip_name_space"/>
+   <LinearLayout
+      		android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+            <ImageButton
+					        
+					        android:id="@+id/edit_tripname_button"
+					        android:layout_width="40dp"
+					        android:layout_height="40dp"
+					        android:background="#0000"
+					        android:layout_gravity="left"
+					        android:layout_marginRight="0dp"
+					        android:scaleType="fitXY"
+					        android:layout_marginTop="3dp"
+					        android:src="@drawable/pen_white"
+					        />
+        
+		<TextView 
+				          android:id="@+id/trip_name_show"
+				          android:layout_width="wrap_content"
+				          android:layout_height="wrap_content"
+				          android:layout_marginLeft="3dip"
+				       	  android:layout_marginRight="15dip"
+				       	  android:layout_marginTop="10dip"
+				       	  android:textColor="#33b5e5"
+				       	  android:textAppearance="?android:attr/textAppearanceLarge"
+				          android:text="@string/trip_name_space"/>
    
-    <TextView 
-          android:id="@+id/trip_desc_show"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="15dip"
-       	 android:layout_marginRight="15dip"
-       	 android:textColor="#55e7f7"
-       	android:textAppearance="?android:attr/textAppearanceLarge"
-          android:text="@string/trip_desc_space"/>
+  
+   </LinearLayout>
+   
+   <LinearLayout
+       		android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+		
+           				<ImageButton
+					       
+					        android:id="@+id/edit_tripdesc_button"
+					        android:layout_width="40dp"
+					        android:layout_height="40dp"
+					        android:background="#0000"
+					        android:layout_gravity="left"
+					        android:layout_marginRight="0dp"
+					        android:scaleType="fitXY"
+					        android:layout_marginTop="3dp"
+					        android:src="@drawable/pen_white"
+					        />
+					    <TextView 
+					          android:id="@+id/trip_desc_show"
+					          android:layout_width="wrap_content"
+					          android:layout_height="wrap_content"
+					          android:layout_marginLeft="3dip"
+					       	  android:layout_marginRight="15dip"
+					       	  android:textColor="#55e7f7"
+					       	  android:textAppearance="?android:attr/textAppearanceLarge"
+					          android:text="@string/trip_desc_space"/>
+    
+    
+    </LinearLayout>
     
   <TextView 
           android:id="@+id/textView2"
@@ -118,7 +159,7 @@
 					        android:layout_marginTop="3dp"
 					        android:src="@drawable/search_white"
 					        />
-					    </LinearLayout>
+	</LinearLayout>
 					    
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
 

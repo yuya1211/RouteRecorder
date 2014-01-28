@@ -65,18 +65,20 @@ public class FragmentTabs extends FragmentActivity {
         //bar.setDisplayShowHomeEnabled(false);
         bar.setDisplayShowCustomEnabled(false);
         
+      
+        
         bar.addTab(bar.newTab()
-                .setText("Show Map")
+                .setIcon(R.drawable.world_white)
                 .setTabListener(new TabListener<RouteMapFragment>(
-                        this, "Show Map", RouteMapFragment.class)));
+                        this, "Show Map" ,  RouteMapFragment.class)));
 
         bar.addTab(bar.newTab()
-                .setText("Add Trip")
+        		.setIcon(R.drawable.pen_white_frame)
                 .setTabListener(new TabListener<AddRouteFragment>(
                         this, "Add Trip", AddRouteFragment.class)));
               
         bar.addTab(bar.newTab()
-                .setText("Show List")
+        		.setIcon(R.drawable.list_new)
                 .setTabListener(new TabListener<MyListFragment>(
                         this, "Show List", MyListFragment.class)));
         

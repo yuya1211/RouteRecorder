@@ -5,10 +5,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-   
+  
             
     <EditText
-        android:id="@+id/trip_name_edit"
+        android:id="@+id/trip_desc_edit"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dip"
@@ -18,7 +18,5 @@
         android:capitalize="none"
         android:gravity="fill_horizontal"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    
         
 </LinearLayout>

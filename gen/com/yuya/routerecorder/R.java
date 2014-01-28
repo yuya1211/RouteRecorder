@@ -207,26 +207,24 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f02001a;
         public static final int ic_plusone_standard_off_client=0x7f02001b;
         public static final int ic_plusone_tall_off_client=0x7f02001c;
-        public static final int plus=0x7f02001d;
-        public static final int plus_white=0x7f02001e;
-        public static final int search=0x7f02001f;
+        public static final int list_new=0x7f02001d;
+        public static final int pen_white=0x7f02001e;
+        public static final int pen_white_frame=0x7f02001f;
         public static final int search_white=0x7f020020;
-        public static final int tasks=0x7f020021;
-        public static final int trash_empty=0x7f020022;
-        public static final int trash_empty_white=0x7f020023;
-        public static final int voyagrlogo1=0x7f020024;
-        public static final int voyagrlogo2=0x7f020025;
-        public static final int world=0x7f020026;
-        public static final int world_white=0x7f020027;
+        public static final int trash_empty_white=0x7f020021;
+        public static final int voyagrlogo1=0x7f020022;
+        public static final int world_white=0x7f020023;
     }
     public static final class id {
-        public static final int PlaceListView=0x7f05000c;
+        public static final int PlaceListView=0x7f05000e;
         public static final int RouteListView=0x7f050017;
         public static final int action_show_list=0x7f050021;
-        public static final int addPlaces_button=0x7f05000f;
-        public static final int addTrip_button=0x7f050011;
+        public static final int addPlaces_button=0x7f050011;
+        public static final int addTrip_button=0x7f050013;
         public static final int clear=0x7f050024;
         public static final int delete_imagebutton=0x7f05001c;
+        public static final int edit_tripdesc_button=0x7f05000b;
+        public static final int edit_tripname_button=0x7f050009;
         public static final int fragment_container=0x7f050008;
         public static final int hybrid=0x7f050004;
         public static final int imageView1=0x7f050020;
@@ -237,26 +235,24 @@ containing a value of this type.
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int pager=0x7f050016;
-        public static final int placeMap=0x7f050010;
-        public static final int place_name=0x7f05000d;
+        public static final int placeMap=0x7f050012;
+        public static final int place_name=0x7f05000f;
         public static final int route_1=0x7f05001a;
         public static final int route_2=0x7f05001b;
         public static final int route_3=0x7f05001e;
         public static final int satellite=0x7f050002;
-        public static final int searchPlaces_button=0x7f05000e;
+        public static final int searchPlaces_button=0x7f050010;
         public static final int show=0x7f050023;
         public static final int show_imagebutton=0x7f05001d;
         public static final int splashscreen=0x7f05001f;
         public static final int suggestionChildAddress=0x7f050018;
         public static final int suggestionDescription=0x7f050019;
         public static final int terrain=0x7f050003;
-        public static final int textView2=0x7f05000b;
-        public static final int trip_desc=0x7f050014;
-        public static final int trip_desc_edit=0x7f050015;
-        public static final int trip_desc_show=0x7f05000a;
-        public static final int trip_name=0x7f050012;
-        public static final int trip_name_edit=0x7f050013;
-        public static final int trip_name_show=0x7f050009;
+        public static final int textView2=0x7f05000d;
+        public static final int trip_desc_edit=0x7f050014;
+        public static final int trip_desc_show=0x7f05000c;
+        public static final int trip_name_edit=0x7f050015;
+        public static final int trip_name_show=0x7f05000a;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
@@ -267,13 +263,14 @@ containing a value of this type.
         public static final int add_place=0x7f030002;
         public static final int add_place_grid=0x7f030003;
         public static final int add_route=0x7f030004;
-        public static final int alert_dialog_text_entry=0x7f030005;
-        public static final int fragment_tabs=0x7f030006;
-        public static final int list_route=0x7f030007;
-        public static final int list_route_child=0x7f030008;
-        public static final int list_route_collapsed=0x7f030009;
-        public static final int list_route_expanded=0x7f03000a;
-        public static final int splash_screen=0x7f03000b;
+        public static final int alert_dialog_edit_desc=0x7f030005;
+        public static final int alert_dialog_text_entry=0x7f030006;
+        public static final int fragment_tabs=0x7f030007;
+        public static final int list_route=0x7f030008;
+        public static final int list_route_child=0x7f030009;
+        public static final int list_route_collapsed=0x7f03000a;
+        public static final int list_route_expanded=0x7f03000b;
+        public static final int splash_screen=0x7f03000c;
     }
     public static final class menu {
         public static final int route=0x7f0a0000;

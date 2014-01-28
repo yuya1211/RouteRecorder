@@ -8,14 +8,14 @@
     <string name="place_name" translatable="false">Place Name</string>
     <string name="place_lat" translatable="false">Place Latitute</string>
     <string name="place_lng" translatable="false">Place Longtitute</string>
-    <string name="addPlace_button" translatable="false">Add Place</string>
+    <string name="addPlace_button" translatable="false">Save Place Name</string>
     <string name="searchPlaces_button" translatable="false">search</string>
-    <string name="done_addPlaces" translatable="false">Done</string>
+    <string name="done_addPlaces" translatable="false">Finish!</string>
     
     <string name="start_date" translatable="false">Start Date</string>
     <string name="end_date" translatable="false">End Date</string>
     <string name="trip_desc" translatable="false">Trip Description</string>
-    <string name="addTrip_button" translatable="false">Add Trip</string>
+    <string name="addTrip_button" translatable="false">Finish Editing</string>
     
     <string name="delete_trip" translatable="false">Delete</string>
     <string name="show_trip" translatable="false">Show</string>

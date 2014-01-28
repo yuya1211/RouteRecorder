@@ -23,6 +23,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.LatLngBounds.Builder;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.yuya.routerecorder.DbHelper;
@@ -134,13 +136,10 @@ public class RouteMapFragment extends Fragment {
     			
 		 
     			 if( cursor!=null && cursor.moveToFirst() ){
-    				 
-    				 double cameraLat = 0.0;
-        			 double maxLng = -180.0;
-        			 double minLng =  180.0;
-        			 int countPlaces = 0;
+    	
         			 
     				 //cursor.moveToFirst();
+        			 Builder bounds = new LatLngBounds.Builder(); 
     				 do{
     					 
     					 String PlaceName = cursor.getString(
@@ -153,32 +152,19 @@ public class RouteMapFragment extends Fragment {
     					 Double strLat = Double.parseDouble(PlaceLat);
     					 Double strLng = Double.parseDouble(PlaceLng);
     					 
-    					 countPlaces++;
-    					 cameraLat += strLat;
-    					 if( maxLng < strLng)
-    						 maxLng = strLng;
-    					 if( minLng > strLng)
-    						 minLng = strLng;
+
     					 
-    					// mMap.addMarker(new MarkerOptions().position(
-    					//		 new LatLng(strLat, strLng)).title(PlaceName));
+    					 bounds.include(new LatLng( strLat, strLng ));
     					 
-    					 //path.add(new LatLng(strLat, strLng));					 
     					     					 
     				 }while(cursor.moveToNext());
     				 
     				 //mMap.addPolyline((new PolylineOptions())
     				//		 .addAll( path ).width(3).color(colorInt));
     				 cursor.close();
-    				 double centerLng = 0.0;
-    				 //move the camera to the center of the route
-    				 if ( (maxLng - minLng) > 180 )
-    					 centerLng = maxLng + ( 360 - (maxLng - minLng) ) / 2;   
-    				 else 
-    					 centerLng = (maxLng + minLng)/2;
-    					 
-    				 mMap.moveCamera(CameraUpdateFactory.newLatLng(
-    						 new LatLng( cameraLat/countPlaces, centerLng )));
+
+    				
+    				 mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 50) );
     				 mMap.setMyLocationEnabled(true);
     				 
     				 setUpMap();
@@ -186,7 +172,9 @@ public class RouteMapFragment extends Fragment {
     			 }//end of if
 
 	}//setUpMapForSingleRoute()
-	
+
+
+
 	private void setUpMapIfNeeded() {
 		
 		
@@ -218,6 +206,7 @@ public class RouteMapFragment extends Fragment {
               			setUpMapForSingleRoute(tripSelected);
               		else
               			setUpMap();
+              		
               		}
             }            
         }
@@ -305,11 +294,7 @@ public class RouteMapFragment extends Fragment {
 		 
 		 }   //end of if(the cursorTrip != null)
 			 
-			 
-			 //move the camera to the center of the route
-			// mMap.moveCamera(CameraUpdateFactory.newLatLng(
-			//		 new LatLng( latCenter, lngCenter)));
-		 
+	
 		 
 		 }   //end of showMap
 	 

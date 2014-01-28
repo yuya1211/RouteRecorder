@@ -134,13 +134,7 @@ import android.widget.Toast;
                 Bundle savedInstanceState) {
             //View v = inflater.inflate(R.layout.add_route, container, false);
         	//newRoute = new Route();
-        	
-        	
-        	if(myTripName==null || myTripDesc==null)
-        	textEntryTrip();
-        	
-        
-            
+             
         	if (v != null) {
                 ViewGroup parent = (ViewGroup) v.getParent();
                 if (parent != null)
@@ -157,7 +151,42 @@ import android.widget.Toast;
             	
     		String myPlaceName = ( (EditText)v.findViewById(R.id.place_name) ).toString();
             /*******text field in this fragment*******/ 
-	
+    		
+    		ImageButton editTripNameButton = (ImageButton) v.findViewById(R.id.edit_tripname_button);
+    		editTripNameButton.setOnClickListener( new OnClickListener(){
+
+				@Override
+				public void onClick(View arg0) {
+		        	textEntryTrip();
+				}
+    		} );
+    		
+    		tripNameView = (TextView) v.findViewById(R.id.trip_name_show);
+    		tripNameView.setOnClickListener( new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					textEntryTrip();
+				}
+    		});
+        	tripDescView = (TextView) v.findViewById(R.id.trip_desc_show);
+        	tripDescView.setOnClickListener( new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					textEntryEditDesc();
+				}
+    		});
+        	
+        	ImageButton editTripDescButton = (ImageButton) v.findViewById(R.id.edit_tripdesc_button);
+    		editTripDescButton.setOnClickListener( new OnClickListener(){
+
+				@Override
+				public void onClick(View arg0) {
+					textEntryEditDesc();
+				}
+    		} );
+    
     		//watch for button clicks
             Button button = (Button)v.findViewById(R.id.addTrip_button);
             button.setOnClickListener(new OnClickListener() {
@@ -429,9 +458,9 @@ import android.widget.Toast;
     				placeMap.clear();
     				placeMap.moveCamera( CameraUpdateFactory.newLatLngZoom( 
     									new LatLng( placeLat , placeLong), (float) 5.0));
-    				placeMap.addMarker( new MarkerOptions().
-    						position(	new LatLng( placeLat , placeLong )).
-    						title(placeNameShow));	
+    				placeMap.addMarker( new MarkerOptions()
+    						.position(	new LatLng( placeLat , placeLong ))
+    						.title(placeNameShow)  ).showInfoWindow();	
     				placeMap.setIndoorEnabled(true);	
     				}
             	}
@@ -597,16 +626,13 @@ import android.widget.Toast;
         
         
         private void textEntryTrip(){
-        	
-
-        	
-        	
+        	     	
             LayoutInflater factory = LayoutInflater.from( getActivity() );
             final View textEntryView = factory.inflate(R.layout.alert_dialog_text_entry, null);
            
             
             AlertDialog.Builder newTripDialogBuilder = new AlertDialog.Builder( getActivity() );
-    		newTripDialogBuilder.setTitle("New Trip");
+    		newTripDialogBuilder.setTitle("New Trip Name:");
     		newTripDialogBuilder.setView(textEntryView)
     						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
     		                    public void onClick(DialogInterface dialog, int whichButton) {
@@ -615,43 +641,62 @@ import android.widget.Toast;
     		                        
     		                        /* User clicked OK so do some stuff */
     		                    	mTripName = (EditText) textEntryView.findViewById(R.id.trip_name_edit);
-    		                		//mTripStartDate = (DatePicker) findViewById(R.id.trip_start_date);
-    		                		//mTripEndDate = (DatePicker) findViewById(R.id.trip_end_date);
-    		                		mTripDesc = (EditText) textEntryView.findViewById(R.id.trip_desc_edit);   	
-    		                		
-    		                                  	
     		                    	myTripName = mTripName.getText().toString();
-				            		myTripDesc = mTripDesc.getText().toString();
-				            		
 				            		tripNameView = (TextView) getActivity().findViewById(R.id.trip_name_show);
-				                	tripDescView = (TextView) getActivity().findViewById(R.id.trip_desc_show);
 				                	
-				                	if( !myTripName.isEmpty() && !myTripDesc.isEmpty()){
+				                	if( !myTripName.isEmpty() ){
 				            		tripNameView.setText(myTripName);
-				            		tripDescView.setText(myTripDesc);
-				                	}
-				                	
-				            		if(myTripName.isEmpty() || myTripDesc.isEmpty()){
-				            		//if(myTripName.trim().equalsIgnoreCase("") || myTripDesc.trim().equalsIgnoreCase("")){
-    		                			
-    		                			getActivity().getActionBar().setSelectedNavigationItem(0);
-    		                			myTripName = null;
-    		                			myTripDesc = null;
-    		                		}
-    		                		
-    		         
+				            		}
+				     
     		                    }
     		                })
     						.setNegativeButton( 
     									"Cancel", new DialogInterface.OnClickListener() {
     				                    public void onClick(DialogInterface dialog, int whichButton) {
-
-    				                        /* User clicked cancel so do some stuff */
-    				                    	getActivity().getActionBar().setSelectedNavigationItem(0);
 					        				
     				                    }
     				                })
-    				                .setCancelable(false)
+    				        .setCancelable(false)
+    						.create()
+    						.show();
+    		
+    		
+    			
+        	
+        }
+        
+        private void textEntryEditDesc(){
+	     	
+            LayoutInflater factory = LayoutInflater.from( getActivity() );
+            final View textEntryView = factory.inflate(R.layout.alert_dialog_edit_desc, null);
+           
+            
+            AlertDialog.Builder newTripDialogBuilder = new AlertDialog.Builder( getActivity() );
+    		newTripDialogBuilder.setTitle("New Trip Description:");
+    		newTripDialogBuilder.setView(textEntryView)
+    						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    		                    public void onClick(DialogInterface dialog, int whichButton) {
+    		                    	
+    		                    	
+    		                        
+    		                        /* User clicked OK so do some stuff */
+    		                    	mTripDesc = (EditText) textEntryView.findViewById(R.id.trip_desc_edit);   	
+    		                		myTripDesc = mTripDesc.getText().toString();
+    		                		tripDescView = (TextView) getActivity().findViewById(R.id.trip_desc_show);
+				                	
+				                	if( !myTripDesc.isEmpty() ){
+				                		tripDescView.setText(myTripDesc);
+				                	}
+				     
+    		                    }
+    		                })
+    						.setNegativeButton( 
+    									"Cancel", new DialogInterface.OnClickListener() {
+    				                    public void onClick(DialogInterface dialog, int whichButton) {
+			        				
+    				                    }
+    				                })
+    				        .setCancelable(false)
     						.create()
     						.show();
     		
